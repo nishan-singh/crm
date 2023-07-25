@@ -5,11 +5,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './components/header/header.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavSidebarComponent } from './components/nav-sidebar/nav-sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SidebarComponent],
+  declarations: [AppComponent, NavSidebarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
