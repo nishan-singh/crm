@@ -50,3 +50,53 @@ mat-drawer-content {
 .mat-drawer {
   z-index: 1 !important;
 }
+
+// panels styling
+
+.panel-wrapper {
+  background-color: $color-primary;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 3s ease-in-out;
+  min-height: 100%;
+}
+
+.panel-header {
+  padding: $m-16;
+  justify-content: space-between;
+  background-color: $color-light-blue-2;
+  border-bottom: 1px solid $color-secondary;
+}
+
+.panel-list {
+  flex-direction: column;
+  padding: $m-16;
+  gap: $m-16;
+  li {
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-secondary;
+    padding-bottom: $m-8;
+  }
+  &__info-wrapper {
+    h4,
+    p {
+      line-height: 1.5;
+    }
+  }
+  .more-info {
+    padding: 4px $m-8;
+    background-color: $color-light-blue-1;
+    font-size: 14px;
+    border-radius: 4px;
+    color: $color-primary;
+  }
+}
+
+.full-screen {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
