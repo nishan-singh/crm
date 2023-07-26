@@ -2,6 +2,47 @@
 
 .upcoming-events-wrapper {
   background-color: $color-primary;
-  padding: $m-8 $m-16;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 3s ease-in-out;
+}
+
+.full-screen {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+header {
+  padding: $m-16;
+  justify-content: space-between;
+  background-color: $color-light-blue-2;
+  border-bottom: 1px solid $color-secondary;
+}
+
+.events-list {
+  flex-direction: column;
+  padding: $m-16;
+  gap: $m-16;
+  &__each {
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-secondary;
+    padding-bottom: $m-8;
+  }
+  &__info-wrapper {
+    h4,
+    p {
+      line-height: 1.5;
+    }
+  }
+  .more-info {
+    padding: 4px $m-8;
+    background-color: $color-light-blue-1;
+    font-size: 14px;
+    border-radius: 4px;
+    color: $color-primary;
+  }
 }

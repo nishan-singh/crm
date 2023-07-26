@@ -1,7 +1,14 @@
-<section class="upcoming-events-wrapper">
-  <header>
-    <h2>Upcoming Events</h2>
-    <button type="button" aria-label="Full Screen View">
+<section
+  class="upcoming-events-wrapper"
+  [ngClass]="{ 'full-screen': isFullScreen }"
+>
+  <header class="d-flex">
+    <h3>Upcoming Events</h3>
+    <button
+      type="button"
+      aria-label="Full Screen View"
+      (click)="toggleFullScreen()"
+    >
       <svg
         fill="#03001c"
         xmlns="http://www.w3.org/2000/svg"
@@ -25,13 +32,34 @@
       </svg>
     </button>
   </header>
-  <ul>
-    <li>
-      <div>
-        <h3>Event Name</h3>
+  <ul class="events-list d-flex">
+    <li class="events-list__each d-flex">
+      <div class="events-list__info-wrapper">
+        <h4>Event Name</h4>
         <p>Event Date</p>
       </div>
-      <P> Email </P>
+      <p class="more-info">Email</p>
+    </li>
+    <li class="events-list__each d-flex">
+      <div class="events-list__info-wrapper">
+        <h4>Event Name</h4>
+        <p>Event Date</p>
+      </div>
+      <p class="more-info">Email</p>
+    </li>
+    <li class="events-list__each d-flex">
+      <div class="events-list__info-wrapper">
+        <h4>Event Name</h4>
+        <p>Event Date</p>
+      </div>
+      <p class="more-info">Email</p>
+    </li>
+    <li class="events-list__each d-flex">
+      <div class="events-list__info-wrapper">
+        <h4>Event Name</h4>
+        <p>Event Date</p>
+      </div>
+      <p class="more-info">Email</p>
     </li>
   </ul>
 </section>
