@@ -1,0 +1,23 @@
+@import "../../../variables.scss";
+
+.info-card-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $m-24;
+  &__each {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: $m-16;
+    background-color: $color-light-blue-1;
+    min-height: 120px;
+    color: $color-primary;
+    border-radius: 8px;
+  }
+  &__inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $m-16;
+  }
+}

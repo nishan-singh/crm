@@ -1,0 +1,7 @@
+@import "../../../variables.scss";
+
+.upcoming-events-wrapper {
+  background-color: $color-primary;
+  padding: $m-8 $m-16;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

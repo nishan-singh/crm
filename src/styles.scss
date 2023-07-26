@@ -44,6 +44,6 @@ a {
   justify-content: center;
 }
 
-main {
-  min-height: calc(100vh - 72px);
+mat-drawer-content {
+  min-height: 100vh;
 }
