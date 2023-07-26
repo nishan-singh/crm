@@ -1,3 +1,21 @@
-<app-nav-sidebar></app-nav-sidebar>
-
-<!-- <app-footer></app-footer> -->
+<mat-drawer-container class="sidebar-container">
+  <header class="d-flex">
+    <button (click)="drawer.toggle()">click</button>
+    <nav>
+      <a href="">Home</a>
+      <a href="">Log Out</a>
+    </nav>
+  </header>
+  <mat-drawer #drawer class="sidebar-content-wrapper d-flex" mode="side">
+    <ul>
+      <li>
+        <a href="">Home</a>
+        <a href="">Home</a>
+        <a href="">Home</a>
+      </li>
+    </ul>
+  </mat-drawer>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</mat-drawer-container>
