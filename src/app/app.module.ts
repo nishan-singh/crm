@@ -12,6 +12,7 @@ import { InfoCardsComponent } from './components/info-cards/info-cards.component
 import { UpcomingEventsComponent } from './components/upcoming-events/upcoming-events.component';
 import { RunningProjectsComponent } from './components/running-projects/running-projects.component';
 import { PendingWorksComponent } from './components/pending-works/pending-works.component';
+import { WorkAnnouncementsComponent } from './components/work-announcements/work-announcements.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PendingWorksComponent } from './components/pending-works/pending-works.
     UpcomingEventsComponent,
     RunningProjectsComponent,
     PendingWorksComponent,
+    WorkAnnouncementsComponent,
   ],
   imports: [
     BrowserModule,

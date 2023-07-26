@@ -1,0 +1,13 @@
+thead,
+tbody {
+  width: 100%;
+}
+
+tr {
+  th:nth-child(even) {
+    flex: 1;
+  }
+  td {
+    flex: 1;
+  }
+}
