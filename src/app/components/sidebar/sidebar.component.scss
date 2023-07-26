@@ -1,0 +1,15 @@
+@import "../../../variables.scss";
+
+section {
+  margin: $spacing-block $m-32;
+  h2 {
+    margin-bottom: $m-24;
+    text-align: center;
+  }
+}
+
+ul {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $m-16;
+}

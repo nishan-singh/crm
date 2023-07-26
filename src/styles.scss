@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 html,
 body {
   min-height: 100%;
@@ -11,31 +13,37 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  font-family: "open sans", sans-serif;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  background-color: transparent;
+  border: transparent;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .d-flex {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-@import "variables.scss";
 
-header {
-  width: 100%;
-  justify-content: space-between;
-  padding-inline: $spacing-inline;
-  height: 72px;
-  background-color: $color-dark-blue;
-}
-
-.sidebar-container {
-  height: 100vh;
-  background-color: #fff;
-}
-
-.sidebar-content-wrapper {
-  width: 232px;
-  height: 100%;
-}
-
-.example-sidenav {
-  padding: 20px;
+main {
+  min-height: calc(100vh - 72px);
 }
