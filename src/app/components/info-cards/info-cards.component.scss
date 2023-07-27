@@ -21,3 +21,9 @@
     gap: $m-16;
   }
 }
+
+@media (max-width: 872px) {
+  .info-card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

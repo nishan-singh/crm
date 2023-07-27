@@ -16,7 +16,7 @@ export class AppComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any): void {
-    if (event.target.innerWidth < 768 || window.innerWidth < 768) {
+    if (event.target.innerWidth < 1024 || window.innerWidth < 1024) {
       this.drawer.close();
     } else {
       this.drawer.open();

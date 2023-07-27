@@ -13,3 +13,15 @@
   grid-template-columns: 1fr 1fr;
   gap: $m-24;
 }
+
+@media (max-width: 872px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 572px) {
+  .content-wrapper {
+    padding: $spacing-block $spacing-inline-mobile;
+  }
+}

@@ -26,3 +26,9 @@ header.header {
 .example-sidenav {
   padding: 20px;
 }
+
+@media (max-width: 572px) {
+  header.header {
+    padding-inline: $spacing-inline-mobile;
+  }
+}
