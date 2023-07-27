@@ -26,33 +26,15 @@
     </button>
   </header>
   <ul class="panel-list events-list d-flex">
-    <li class="panel-list__each d-flex">
+    <li
+      class="panel-list__each d-flex"
+      *ngFor="let pendingWork of pendingWorks$ | async"
+    >
       <div class="panel-list__info-wrapper">
-        <h4>Project Name</h4>
-        <p>Project Desc</p>
+        <h4>{{ pendingWork.name }}</h4>
+        <p>{{ pendingWork.desc }}</p>
       </div>
-      <p class="more-info">Success</p>
-    </li>
-    <li class="panel-list__each d-flex">
-      <div class="panel-list__info-wrapper">
-        <h4>Project Name</h4>
-        <p>Project Desc</p>
-      </div>
-      <p class="more-info">Success</p>
-    </li>
-    <li class="panel-list__each d-flex">
-      <div class="panel-list__info-wrapper">
-        <h4>Project Name</h4>
-        <p>Project Desc</p>
-      </div>
-      <p class="more-info">Success</p>
-    </li>
-    <li class="panel-list__each d-flex">
-      <div class="panel-list__info-wrapper">
-        <h4>Project Name</h4>
-        <p>Project Desc</p>
-      </div>
-      <p class="more-info">Success</p>
+      <p class="more-info">{{ pendingWork.status }}</p>
     </li>
   </ul>
 </section>

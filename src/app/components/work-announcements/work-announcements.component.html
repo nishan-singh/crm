@@ -33,29 +33,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="panel-list__each d-flex">
+      <tr
+        class="panel-list__each d-flex"
+        *ngFor="let workAnnouncement of workAnnouncements$ | async"
+      >
         <td>
-          <h4>Name</h4>
+          <h4>
+            {{ workAnnouncement.workerName }}
+          </h4>
         </td>
-        <td>Project name</td>
-      </tr>
-      <tr class="panel-list__each d-flex">
         <td>
-          <h4>Name</h4>
+          {{ workAnnouncement.projectName }}
         </td>
-        <td>Project name</td>
-      </tr>
-      <tr class="panel-list__each d-flex">
-        <td>
-          <h4>Name</h4>
-        </td>
-        <td>Project name</td>
-      </tr>
-      <tr class="panel-list__each d-flex">
-        <td>
-          <h4>Name</h4>
-        </td>
-        <td>Project name</td>
       </tr>
     </tbody>
   </table>

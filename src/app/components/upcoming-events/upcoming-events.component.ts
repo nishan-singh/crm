@@ -5,7 +5,6 @@ import {
   collectionData,
   query,
   orderBy,
-  where,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 

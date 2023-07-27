@@ -1,6 +1,8 @@
 @import "../variables.scss";
 
 header.header {
+  position: sticky;
+  top: 0;
   width: 100%;
   justify-content: space-between;
   padding-inline: $spacing-inline;

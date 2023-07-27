@@ -26,33 +26,15 @@
     </button>
   </header>
   <ul class="panel-list events-list d-flex">
-    <li class="panel-list__each d-flex">
+    <li
+      class="panel-list__each d-flex"
+      *ngFor="let runningProject of runningProjects$ | async"
+    >
       <div class="panel-list__info-wrapper">
-        <h4>Project Name</h4>
-        <p>Project Desc</p>
+        <h4>{{ runningProject.name }}</h4>
+        <p>{{ runningProject.desc }}</p>
       </div>
-      <p class="more-info">Success</p>
-    </li>
-    <li class="panel-list__each d-flex">
-      <div class="panel-list__info-wrapper">
-        <h4>Project Name</h4>
-        <p>Project Desc</p>
-      </div>
-      <p class="more-info">Success</p>
-    </li>
-    <li class="panel-list__each d-flex">
-      <div class="panel-list__info-wrapper">
-        <h4>Project Name</h4>
-        <p>Project Desc</p>
-      </div>
-      <p class="more-info">Success</p>
-    </li>
-    <li class="panel-list__each d-flex">
-      <div class="panel-list__info-wrapper">
-        <h4>Project Name</h4>
-        <p>Project Desc</p>
-      </div>
-      <p class="more-info">Success</p>
+      <p class="more-info">{{ runningProject.status }}</p>
     </li>
   </ul>
 </section>
