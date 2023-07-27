@@ -13,6 +13,11 @@ import { UpcomingEventsComponent } from './components/upcoming-events/upcoming-e
 import { RunningProjectsComponent } from './components/running-projects/running-projects.component';
 import { PendingWorksComponent } from './components/pending-works/pending-works.component';
 import { WorkAnnouncementsComponent } from './components/work-announcements/work-announcements.component';
+import { YearlyEarningsComponent } from './components/yearly-earnings/yearly-earnings.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -25,12 +30,16 @@ import { WorkAnnouncementsComponent } from './components/work-announcements/work
     RunningProjectsComponent,
     PendingWorksComponent,
     WorkAnnouncementsComponent,
+    YearlyEarningsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent],

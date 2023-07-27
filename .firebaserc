@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crm-admin-main": {
+      "hosting": {
+        "crm": [
+          "crm-admin-main"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crm-admin-main"
+  }
+}

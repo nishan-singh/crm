@@ -1,9 +1,23 @@
+table {
+  gap: 0;
+}
+
 thead,
 tbody {
   width: 100%;
 }
 
+thead {
+  th {
+    flex-basis: 50%;
+    display: flex;
+  }
+}
+
 tr {
+  border-bottom: 1px solid #ccc;
+  margin-block-end: 16px;
+
   th:nth-child(even) {
     flex: 1;
   }
