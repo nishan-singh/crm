@@ -30,33 +30,21 @@
     </button>
   </header>
   <ul class="panel-list events-list d-flex">
-    <li class="panel-list__each d-flex">
+    <li
+      class="panel-list__each d-flex"
+      *ngFor="let event of upcomingEvents$ | async"
+    >
       <div class="panel-list__info-wrapper">
-        <h4>Event Name</h4>
-        <p>Event Date</p>
+        <h4>{{ event.name }}</h4>
+        <p *ngIf="event.endDate; else noEndDate">
+          {{ event.startDate | date : "MMM,dd" }} -
+          {{ event.endDate | date : "MMM,dd,YYYY" }}
+        </p>
+        <ng-template #noEndDate>
+          <p>{{ event.startDate | date : "MMM,dd,YYYY" }}</p>
+        </ng-template>
       </div>
-      <p class="more-info">Email</p>
-    </li>
-    <li class="panel-list__each d-flex">
-      <div class="panel-list__info-wrapper">
-        <h4>Event Name</h4>
-        <p>Event Date</p>
-      </div>
-      <p class="more-info">Email</p>
-    </li>
-    <li class="panel-list__each d-flex">
-      <div class="panel-list__info-wrapper">
-        <h4>Event Name</h4>
-        <p>Event Date</p>
-      </div>
-      <p class="more-info">Email</p>
-    </li>
-    <li class="panel-list__each d-flex">
-      <div class="panel-list__info-wrapper">
-        <h4>Event Name</h4>
-        <p>Event Date</p>
-      </div>
-      <p class="more-info">Email</p>
+      <p class="more-info">{{ event.platform }}</p>
     </li>
   </ul>
 </section>
