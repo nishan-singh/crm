@@ -14,9 +14,16 @@
   gap: $m-24;
 }
 
+.yearly-earning-graph {
+  grid-column: span 2;
+}
+
 @media (max-width: 872px) {
   .main-content {
     grid-template-columns: 1fr;
+  }
+  .yearly-earning-graph {
+    grid-column: initial;
   }
 }
 
