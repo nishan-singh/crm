@@ -1,7 +1,11 @@
-<section class="panel-wrapper">
+<section class="panel-wrapper" [ngClass]="{ 'full-screen': isFullScreen }">
   <header class="panel-header d-flex">
     <h3>Running Projects</h3>
-    <button type="button" aria-label="Full Screen View">
+    <button
+      type="button"
+      aria-label="Full Screen View"
+      (click)="toggleFullScreen()"
+    >
       <svg
         fill="#03001c"
         xmlns="http://www.w3.org/2000/svg"

@@ -30,11 +30,13 @@ export class UpcomingEventsComponent {
   @HostListener('document: keydown', ['$event'])
   onKeydownHandler(event: KeyboardEvent): void {
     if (event.key === 'Escape') {
+      document.body.style.overflow = 'auto';
       this.isFullScreen = false;
     }
   }
 
   toggleFullScreen(): void {
+    document.body.style.overflow = this.isFullScreen ? 'auto' : 'hidden';
     this.isFullScreen = !this.isFullScreen;
   }
 }

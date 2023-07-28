@@ -62,10 +62,9 @@
     </nav>
   </header>
   <mat-drawer #drawer class="sidebar-content-wrapper d-flex" mode="side">
-    <!-- fixedInViewport="true" -->
-    <app-sidebar></app-sidebar>
+    <app-sidebar (isSidebarOpen)="toggleDrawer()"></app-sidebar>
   </mat-drawer>
-  <main>
+  <main (backdropClick)="drawer.close()">
     <router-outlet></router-outlet>
   </main>
 </mat-drawer-container>

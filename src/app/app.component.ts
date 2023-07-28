@@ -1,4 +1,4 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, HostListener, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ export class AppComponent {
   @ViewChild('drawer') drawer: any;
 
   ngAfterViewInit(): void {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1024) {
       this.drawer.open();
     }
   }
