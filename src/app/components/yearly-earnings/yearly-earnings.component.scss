@@ -1,0 +1,24 @@
+@import "../../../variables.scss";
+
+@media (max-width: 768px) {
+  .panel-wrapper {
+    overflow: auto;
+  }
+}
+
+.canvas-wrapper {
+  min-height: 400px;
+  @media (max-width: 768px) {
+    min-height: 300px;
+  }
+  @media (max-width: 576px) {
+    min-height: 250px;
+  }
+}
+
+.full-screen .canvas-wrapper {
+  transition: transform 0.3s ease-in-out;
+  @media (max-width: 768px) {
+    height: calc(100dvh - $header-height);
+  }
+}

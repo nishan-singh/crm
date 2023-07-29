@@ -11,17 +11,21 @@ import { Chart, registerables } from 'chart.js';
 export class YearlyEarningsComponent {
   private firestore: Firestore = inject(Firestore);
   isFullScreen: boolean = false;
+  rotateCanvas: boolean = false;
   yearlyEarnings: any;
+  checkWidth: number = window.screen.width;
   months: any[] = [];
   earnings: any[] = [];
+  expenses: any[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
     const yearlyEarningRef = collection(this.firestore, 'yearly-earnings');
     collectionData(yearlyEarningRef).subscribe((data: any) => {
-      this.months = Object.keys(data[0]);
-      this.earnings = Object.values(data[0]);
+      this.months = data.map((d: any) => d.month);
+      this.earnings = data.map((d: any) => d.earning);
+      this.expenses = data.map((d: any) => d.expenses);
       this.displayYearlyEarning();
     });
   }
@@ -33,15 +37,19 @@ export class YearlyEarningsComponent {
       this.isFullScreen = false;
     }
   }
+  @HostListener('window: resize', ['$event'])
+  onResize(event: any): void {
+    this.checkWidth = event.target.innerWidth;
+  }
 
   toggleFullScreen(): void {
     document.body.style.overflow = this.isFullScreen ? 'auto' : 'hidden';
     this.isFullScreen = !this.isFullScreen;
+    this.checkIfMobile();
   }
 
   displayYearlyEarning(): void {
     Chart.register(...registerables);
-
     new Chart('yearlyEarningChart', {
       type: 'bar',
       data: {
@@ -56,7 +64,7 @@ export class YearlyEarningsComponent {
           },
           {
             label: 'Yearly Expenses (in Euros)',
-            data: [8, 13, 3, 5, 2, 3],
+            data: this.expenses,
             backgroundColor: ['rgba(69, 69, 69, 0.2)'],
             borderColor: ['rgba(69, 69, 69, 1)'],
             borderWidth: 1,
@@ -64,12 +72,22 @@ export class YearlyEarningsComponent {
         ],
       },
       options: {
+        maintainAspectRatio: false,
+        resizeDelay: 0,
+        aspectRatio: 1,
         scales: {
           y: {
             beginAtZero: true,
           },
         },
+        indexAxis: this.checkIfMobile() ? 'y' : 'x',
       },
     });
+  }
+
+  checkIfMobile(): boolean {
+    console.log(this.checkWidth);
+
+    return this.checkWidth < 768 || window.screen.width < 768;
   }
 }
