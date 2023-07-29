@@ -45,7 +45,6 @@ export class YearlyEarningsComponent {
   toggleFullScreen(): void {
     document.body.style.overflow = this.isFullScreen ? 'auto' : 'hidden';
     this.isFullScreen = !this.isFullScreen;
-    this.checkIfMobile();
   }
 
   displayYearlyEarning(): void {
@@ -73,21 +72,13 @@ export class YearlyEarningsComponent {
       },
       options: {
         maintainAspectRatio: false,
-        resizeDelay: 0,
-        aspectRatio: 1,
+        responsive: true,
         scales: {
           y: {
             beginAtZero: true,
           },
         },
-        indexAxis: this.checkIfMobile() ? 'y' : 'x',
       },
     });
-  }
-
-  checkIfMobile(): boolean {
-    console.log(this.checkWidth);
-
-    return this.checkWidth < 768 || window.screen.width < 768;
   }
 }
