@@ -1,14 +1,13 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, inject, HostListener } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 import { Chart, registerables } from 'chart.js';
 
 @Component({
-  selector: 'app-yearly-earnings',
-  templateUrl: './yearly-earnings.component.html',
-  styleUrls: ['./yearly-earnings.component.scss'],
+  selector: 'app-monthly-income',
+  templateUrl: './monthly-income.component.html',
+  styleUrls: ['./monthly-income.component.scss'],
 })
-export class YearlyEarningsComponent {
+export class MonthlyIncomeComponent {
   private firestore: Firestore = inject(Firestore);
   isFullScreen: boolean = false;
   rotateCanvas: boolean = false;
@@ -21,7 +20,7 @@ export class YearlyEarningsComponent {
   constructor() {}
 
   ngOnInit(): void {
-    const yearlyEarningRef = collection(this.firestore, 'yearly-earnings');
+    const yearlyEarningRef = collection(this.firestore, 'monthly-income');
     collectionData(yearlyEarningRef).subscribe((data: any) => {
       this.months = data.map((d: any) => d.month);
       this.earnings = data.map((d: any) => d.earning);

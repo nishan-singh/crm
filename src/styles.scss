@@ -15,6 +15,12 @@ body {
 
 body {
   font-family: "open sans", sans-serif;
+  background-color: $color-light-grey;
+}
+
+main {
+  max-width: 2048px;
+  margin-inline: auto;
 }
 
 button,
