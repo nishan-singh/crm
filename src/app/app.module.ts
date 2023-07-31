@@ -15,7 +15,6 @@ import { PendingWorksComponent } from './components/pending-works/pending-works.
 import { WorkAnnouncementsComponent } from './components/work-announcements/work-announcements.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { MonthlyIncomeComponent } from './components/monthly-income/monthly-income.component';
 
@@ -38,10 +37,10 @@ import { MonthlyIncomeComponent } from './components/monthly-income/monthly-inco
     BrowserAnimationsModule,
     MatSidenavModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
