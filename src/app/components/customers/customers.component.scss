@@ -1,0 +1,26 @@
+@import "../../../variables.scss";
+
+.panel-list {
+  padding-block-start: $m-24;
+  background-color: $color-primary;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  text-align: left;
+}
+table,
+th,
+td {
+  border: 1px solid $color-secondary;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: $m-16 $m-24;
+}
+td {
+  vertical-align: top;
+  word-wrap: break-word;
+}

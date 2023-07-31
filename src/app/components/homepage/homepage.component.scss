@@ -1,5 +1,11 @@
 @import "../../../variables.scss";
 
+.homepage-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $m-32;
+}
+
 .main-content {
   display: grid;
   grid-template-columns: 1fr 1fr;

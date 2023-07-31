@@ -16,6 +16,7 @@ body {
 body {
   font-family: "open sans", sans-serif;
   background-color: $color-light-grey;
+  min-height: 100%;
 }
 
 main {
@@ -58,11 +59,10 @@ mat-drawer-content {
 }
 
 .content-wrapper {
-  display: flex;
-  flex-direction: column;
   padding: $spacing-block;
-  gap: $m-32;
   background-color: $color-light-grey;
+  min-height: calc(100vh - $header-height);
+  min-height: calc(100dvh - $header-height);
 }
 
 // panels styling

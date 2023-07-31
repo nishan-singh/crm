@@ -64,7 +64,7 @@
   <mat-drawer #drawer class="sidebar-content-wrapper d-flex" mode="side">
     <app-sidebar (isSidebarOpen)="toggleDrawer()"></app-sidebar>
   </mat-drawer>
-  <main (backdropClick)="drawer.close()">
+  <main (backdropClick)="drawer.close()" class="content-wrapper">
     <router-outlet></router-outlet>
   </main>
 </mat-drawer-container>
