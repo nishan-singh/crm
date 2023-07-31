@@ -4,7 +4,7 @@ aside {
   margin: $spacing-block $m-32;
   position: relative;
   h2 {
-    margin-bottom: $m-24;
+    margin-bottom: $m-32;
     text-align: center;
   }
 }
@@ -12,11 +12,19 @@ aside {
 ul {
   flex-direction: column;
   align-items: flex-start;
-  gap: $m-16;
+  gap: $m-24;
+}
+
+.sidebar-routing-link {
+  gap: $m-8;
 }
 
 .toggle-btn {
   position: absolute;
-  top: -$m-16;
-  right: 0;
+  top: -$m-24;
+  right: -$m-16;
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
 }

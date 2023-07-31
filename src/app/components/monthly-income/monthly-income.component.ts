@@ -23,8 +23,26 @@ export class MonthlyIncomeComponent {
     const yearlyEarningRef = collection(this.firestore, 'monthly-income');
     collectionData(yearlyEarningRef).subscribe((data: any) => {
       this.months = data.map((d: any) => d.month);
+      this.months.sort((a, b) => {
+        const monthOrder = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ];
+        return monthOrder.indexOf(a) - monthOrder.indexOf(b);
+      });
       this.earnings = data.map((d: any) => d.earning);
       this.expenses = data.map((d: any) => d.expenses);
+
       this.displayYearlyEarning();
     });
   }
@@ -75,6 +93,7 @@ export class MonthlyIncomeComponent {
         scales: {
           y: {
             beginAtZero: true,
+            max: 20,
           },
         },
       },
