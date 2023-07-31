@@ -17,6 +17,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { MonthlyIncomeComponent } from './components/monthly-income/monthly-income.component';
+import { CustomersComponent } from './components/customers/customers.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MonthlyIncomeComponent } from './components/monthly-income/monthly-inco
     PendingWorksComponent,
     WorkAnnouncementsComponent,
     MonthlyIncomeComponent,
+    CustomersComponent,
   ],
   imports: [
     BrowserModule,

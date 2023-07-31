@@ -57,6 +57,14 @@ mat-drawer-content {
   z-index: 1 !important;
 }
 
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-block;
+  gap: $m-32;
+  background-color: $color-light-grey;
+}
+
 // panels styling
 
 .panel-wrapper {

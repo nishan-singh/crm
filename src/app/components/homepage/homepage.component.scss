@@ -1,13 +1,5 @@
 @import "../../../variables.scss";
 
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  padding: $spacing-block;
-  gap: $m-32;
-  background-color: $color-light-grey;
-}
-
 .main-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
