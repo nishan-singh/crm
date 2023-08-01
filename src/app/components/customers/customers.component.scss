@@ -1,8 +1,31 @@
 @import "../../../variables.scss";
 
+$color-success: #4caf50;
+$color-error: #f44336;
+$color-warning: #ff9800;
+$color-progress: #2196f3;
+
+.active {
+  background-color: $color-progress;
+}
+
+.pending {
+  background-color: $color-warning;
+}
+
+.success {
+  background-color: $color-success;
+}
+
 .panel-list {
   padding-block-start: $m-24;
   background-color: $color-primary;
+}
+
+.status {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: $m-8;
 }
 
 table {

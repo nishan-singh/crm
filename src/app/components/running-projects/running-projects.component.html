@@ -38,7 +38,16 @@
         <h4>{{ runningProject.name }}</h4>
         <p>{{ runningProject.desc }}</p>
       </div>
-      <p class="more-info">{{ runningProject.status }}</p>
+      <p
+        class="more-info"
+        [ngClass]="{
+          'in-progress': runningProject.status === 'In Progress' || runningProject.status === 'Ongoing',
+          success: runningProject.status === 'Completed' || runningProject.status === 'Active',
+         
+        }"
+      >
+        {{ runningProject.status }}
+      </p>
     </li>
   </ul>
 </section>

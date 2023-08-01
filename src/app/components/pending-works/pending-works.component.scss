@@ -1,0 +1,10 @@
+$color-error: #f44336;
+$color-warning: #ff9800;
+
+.pending {
+  background-color: $color-warning;
+}
+
+.failed {
+  background-color: $color-error;
+}

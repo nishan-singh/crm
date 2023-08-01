@@ -38,7 +38,15 @@
         <h4>{{ pendingWork.name }}</h4>
         <p>{{ pendingWork.desc }}</p>
       </div>
-      <p class="more-info">{{ pendingWork.status }}</p>
+      <p
+        class="more-info"
+        [ngClass]="{
+          pending: pendingWork.status === 'Pending',
+          failed: pendingWork.status === 'Failed',
+        }"
+      >
+        {{ pendingWork.status }}
+      </p>
     </li>
   </ul>
 </section>

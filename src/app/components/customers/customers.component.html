@@ -52,7 +52,20 @@
             {{ customer.price | currency : "EUR" }}
           </td>
           <td>
-            {{ customer.status }}
+            <p
+              class="status"
+              [ngClass]="
+            {
+              'in-progress': customer.status === 'In Progress' || customer.status === 'Ongoing',
+              success: customer.status === 'Completed',
+              active: customer.status === 'Active',
+              pending: customer.status === 'Pending',
+              failed: customer.status === 'Failed',
+            }
+            "
+            >
+              {{ customer.status }}
+            </p>
           </td>
           <td>Action 1</td>
         </tr>
