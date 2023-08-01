@@ -19,6 +19,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { MonthlyIncomeComponent } from './components/monthly-income/monthly-income.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
+import { ImprintComponent } from './components/imprint/imprint.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TransactionsComponent } from './components/transactions/transactions.co
     MonthlyIncomeComponent,
     CustomersComponent,
     TransactionsComponent,
+    ImprintComponent,
   ],
   imports: [
     BrowserModule,
