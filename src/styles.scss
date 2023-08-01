@@ -63,6 +63,9 @@ mat-drawer-content {
   background-color: $color-light-grey;
   min-height: calc(100vh - $header-height);
   min-height: calc(100dvh - $header-height);
+  @media (max-width: 572px) {
+    padding: $spacing-block $spacing-inline-mobile;
+  }
 }
 
 // panels styling

@@ -24,9 +24,3 @@
     grid-column: auto;
   }
 }
-
-@media (max-width: 572px) {
-  .content-wrapper {
-    padding: $spacing-block $spacing-inline-mobile;
-  }
-}

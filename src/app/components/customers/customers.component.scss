@@ -24,3 +24,9 @@ td {
   vertical-align: top;
   word-wrap: break-word;
 }
+
+tbody {
+  tr:nth-child(odd) {
+    background-color: $color-light-grey;
+  }
+}

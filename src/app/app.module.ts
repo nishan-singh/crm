@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { MonthlyIncomeComponent } from './components/monthly-income/monthly-income.component';
 import { CustomersComponent } from './components/customers/customers.component';
+import { TransactionsComponent } from './components/transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CustomersComponent } from './components/customers/customers.component';
     WorkAnnouncementsComponent,
     MonthlyIncomeComponent,
     CustomersComponent,
+    TransactionsComponent,
   ],
   imports: [
     BrowserModule,
