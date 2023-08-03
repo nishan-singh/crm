@@ -1,5 +1,13 @@
 import { Component, HostListener, inject } from '@angular/core';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import {
+  Firestore,
+  collection,
+  collectionData,
+  query,
+  getDocs,
+  doc,
+  deleteDoc,
+} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,6 +18,7 @@ import { Observable } from 'rxjs';
 export class CustomersComponent {
   private firestore: Firestore = inject(Firestore);
   isFullScreen: boolean = false;
+  uniqueId: string = 'uniqueId';
 
   customers$: Observable<any[]> = collectionData(
     collection(this.firestore, 'customers')
@@ -28,5 +37,13 @@ export class CustomersComponent {
   toggleFullScreen(): void {
     document.body.style.overflow = this.isFullScreen ? 'auto' : 'hidden';
     this.isFullScreen = !this.isFullScreen;
+  }
+
+  async deleteCustomer(): Promise<void> {
+    const documentRef = doc(
+      collection(this.firestore, 'collectionName'),
+      this.uniqueId
+    );
+    await deleteDoc(documentRef);
   }
 }
