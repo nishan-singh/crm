@@ -9,7 +9,7 @@ import {
   deleteDoc,
   addDoc,
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 
 @Component({
   selector: 'app-customers',
@@ -18,19 +18,30 @@ import { Observable } from 'rxjs';
 })
 export class CustomersComponent {
   private firestore: Firestore = inject(Firestore);
+
   isFullScreen: boolean = false;
   uniqueId: string = 'uniqueId';
 
   customers$: Observable<any[]> = collectionData(
-    collection(this.firestore, 'customers')
+    collection(this.firestore, 'customers'),
+    {
+      idField: this.uniqueId,
+    }
   );
 
-  constructor() {
-    this.addCustomer({
-      name: 'John Doe',
-      age: 30,
-      address: '1234 Main St.',
+  ids$: Observable<string[]> = from(this.getAllCustomerIds());
+
+  constructor() {}
+
+  async getAllCustomerIds(): Promise<string[]> {
+    const querySnapshot = await getDocs(
+      collection(this.firestore, 'customers')
+    );
+    const ids: string[] = [];
+    querySnapshot.forEach((doc) => {
+      ids.push(doc.id);
     });
+    return ids;
   }
 
   @HostListener('document: keydown', ['$event'])
@@ -41,22 +52,14 @@ export class CustomersComponent {
     }
   }
 
-  async addCustomer(customerData: any): Promise<string> {
-    const collectionRef = collection(this.firestore, 'customers');
-    console.log('Document written with ID: ', collectionRef.id);
-    return collectionRef.id;
-  }
-
   toggleFullScreen(): void {
     document.body.style.overflow = this.isFullScreen ? 'auto' : 'hidden';
     this.isFullScreen = !this.isFullScreen;
   }
 
-  async deleteCustomer(): Promise<void> {
-    const documentRef = doc(
-      collection(this.firestore, 'collectionName'),
-      this.uniqueId
-    );
-    await deleteDoc(documentRef);
+  delCustomer(id: string): void {
+    console.log(id);
+    // if (!id) return;
+    // deleteDoc(doc(collection(this.firestore, 'customers'), id));
   }
 }

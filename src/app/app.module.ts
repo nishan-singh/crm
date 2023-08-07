@@ -49,4 +49,3 @@ import { ImprintComponent } from './components/imprint/imprint.component';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-

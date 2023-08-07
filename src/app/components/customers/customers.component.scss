@@ -22,10 +22,38 @@ $color-progress: #2196f3;
   background-color: $color-primary;
 }
 
+.new-customer {
+  padding: $m-8;
+  background-color: $color-accent;
+  color: $color-primary;
+  border-radius: 4px;
+  margin-block-end: $m-16;
+  gap: $m-8;
+  h3 {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    font-weight: 500;
+  }
+}
+
 .status {
   width: fit-content;
   padding: 4px 8px;
   border-radius: $m-8;
+}
+
+.delete {
+  padding: 4px 8px;
+  border-radius: $m-8;
+  background-color: $color-error;
+  color: $color-primary;
+  margin-inline-end: $m-8;
+}
+
+.edit {
+  padding: 4px 8px;
+  border-radius: $m-8;
+  background-color: $color-accent;
+  color: $color-primary;
 }
 
 table {
