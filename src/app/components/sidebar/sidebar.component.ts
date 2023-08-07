@@ -15,4 +15,9 @@ export class SidebarComponent {
     this.sidebarOpen = !this.sidebarOpen;
     this.isSidebarOpen.emit(this.sidebarOpen);
   }
+  toggleSidebarMobile(): void {
+    if (window.innerWidth < 768) {
+      this.toggleSidebar();
+    }
+  }
 }

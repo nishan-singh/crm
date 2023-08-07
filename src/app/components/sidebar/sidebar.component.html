@@ -38,7 +38,11 @@
   <h2>CRM Admin</h2>
   <ul class="d-flex">
     <li>
-      <a routerLink="" class="d-flex sidebar-routing-link">
+      <a
+        routerLink=""
+        class="d-flex sidebar-routing-link"
+        (click)="toggleSidebarMobile()"
+      >
         <svg
           fill="#000000"
           width="24px"
@@ -63,7 +67,11 @@
       >
     </li>
     <li>
-      <a routerLink="customers" class="d-flex sidebar-routing-link">
+      <a
+        routerLink="customers"
+        class="d-flex sidebar-routing-link"
+        (click)="toggleSidebarMobile()"
+      >
         <svg
           fill="#000000"
           xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +103,11 @@
       >
     </li>
     <li>
-      <a routerLink="transactions" class="d-flex sidebar-routing-link">
+      <a
+        routerLink="transactions"
+        class="d-flex sidebar-routing-link"
+        (click)="toggleSidebarMobile()"
+      >
         <svg
           width="24px"
           height="24px"
@@ -123,7 +135,11 @@
       </a>
     </li>
     <li>
-      <a routerLink="imprint" class="d-flex sidebar-routing-link">
+      <a
+        routerLink="imprint"
+        class="d-flex sidebar-routing-link"
+        (click)="toggleSidebarMobile()"
+      >
         <svg
           class="sidebar-icon"
           width="24"
