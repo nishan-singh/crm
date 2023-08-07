@@ -1,1 +1,33 @@
-<p>edit-customer works!</p>
+<section class="edit-wrapper d-flex">
+  <h1>Edit Customer</h1>
+  <mat-form-field>
+    <mat-label>Customer Name</mat-label>
+    <input
+      matInput
+      placeholder="Customer Name"
+      [value]="data.customer.name"
+      #customerName
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Select Status</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let status of statusList" [value]="status" #status>
+        {{ status }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="actions-wrapper">
+    <button mat-raised-button (click)="onNoClick()">Cancel</button>
+    <button
+      mat-raised-button
+      [mat-dialog-close]="{
+        name: customerName.value || data.customer.name,
+        status: select?.value || data.customer.status
+      }"
+    >
+      Save
+    </button>
+  </div>
+</section>

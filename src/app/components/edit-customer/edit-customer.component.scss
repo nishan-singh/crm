@@ -1,0 +1,19 @@
+@import "../../../variables.scss";
+
+.edit-wrapper {
+  padding: $m-16 $m-24;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $m-16;
+  min-width: 300px;
+  > * {
+    width: 100%;
+  }
+}
+
+.actions-wrapper {
+  align-self: flex-end;
+  button {
+    margin-left: $m-16;
+  }
+}

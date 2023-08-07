@@ -17,6 +17,10 @@ $color-progress: #2196f3;
   background-color: $color-success;
 }
 
+.cancelled {
+  background-color: $color-error;
+}
+
 .panel-list {
   padding-block-start: $m-24;
   background-color: $color-primary;

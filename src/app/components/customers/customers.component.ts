@@ -3,14 +3,14 @@ import {
   Firestore,
   collection,
   collectionData,
-  query,
   getDocs,
   doc,
-  deleteDoc,
   addDoc,
 } from '@angular/fire/firestore';
-import { updateDoc } from 'firebase/firestore';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable, from } from 'rxjs';
+import { EditCustomerComponent } from '../edit-customer/edit-customer.component';
+import { deleteDoc, getDoc, updateDoc } from 'firebase/firestore';
 
 @Component({
   selector: 'app-customers',
@@ -30,20 +30,7 @@ export class CustomersComponent {
     }
   );
 
-  ids$: Observable<string[]> = from(this.getAllCustomerIds());
-
-  constructor() {}
-
-  async getAllCustomerIds(): Promise<string[]> {
-    const querySnapshot = await getDocs(
-      collection(this.firestore, 'customers')
-    );
-    const ids: string[] = [];
-    querySnapshot.forEach((doc) => {
-      ids.push(doc.id);
-    });
-    return ids;
-  }
+  constructor(public editCustomerDialog: MatDialog) {}
 
   @HostListener('document: keydown', ['$event'])
   onKeydownHandler(event: KeyboardEvent): void {
@@ -59,20 +46,22 @@ export class CustomersComponent {
   }
 
   delCustomer(id: string): void {
-    // deleteDoc(doc(collection(this.firestore, 'customers'), id));
+    deleteDoc(doc(collection(this.firestore, 'customers'), id));
   }
 
-  editCustomer(id: string): void {
-    const customer = doc(collection(this.firestore, 'customers'), id);
-    console.log(
-      'customer',
-      customer,
-      'customer.id',
-      customer.id,
-      'customer.path',
-      customer.path
-    );
+  async editCustomer(id: string): Promise<void> {
+    const docRef = doc(collection(this.firestore, 'customers'), id);
+    const docSnap = await getDoc(docRef);
 
-    // updateDoc(customer, { name: 'updated' });
+    const editCustomer = this.editCustomerDialog.open(EditCustomerComponent, {
+      data: {
+        customer: docSnap.data(),
+      },
+    });
+
+    editCustomer.afterClosed().subscribe((result) => {
+      if (result?.name === undefined || result?.status === undefined) return;
+      updateDoc(docRef, result);
+    });
   }
 }
