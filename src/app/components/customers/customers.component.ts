@@ -9,6 +9,7 @@ import {
   deleteDoc,
   addDoc,
 } from '@angular/fire/firestore';
+import { updateDoc } from 'firebase/firestore';
 import { Observable, from } from 'rxjs';
 
 @Component({
@@ -58,8 +59,20 @@ export class CustomersComponent {
   }
 
   delCustomer(id: string): void {
-    console.log(id);
-    // if (!id) return;
     // deleteDoc(doc(collection(this.firestore, 'customers'), id));
+  }
+
+  editCustomer(id: string): void {
+    const customer = doc(collection(this.firestore, 'customers'), id);
+    console.log(
+      'customer',
+      customer,
+      'customer.id',
+      customer.id,
+      'customer.path',
+      customer.path
+    );
+
+    // updateDoc(customer, { name: 'updated' });
   }
 }
