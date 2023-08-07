@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable, from } from 'rxjs';
 import { EditCustomerComponent } from '../edit-customer/edit-customer.component';
 import { deleteDoc, getDoc, updateDoc } from 'firebase/firestore';
+import { AddCustomerComponent } from '../add-customer/add-customer.component';
 
 @Component({
   selector: 'app-customers',
@@ -62,6 +63,17 @@ export class CustomersComponent {
     editCustomer.afterClosed().subscribe((result) => {
       if (result?.name === undefined || result?.status === undefined) return;
       updateDoc(docRef, result);
+    });
+  }
+
+  addNewCustomer() {
+    const addCustomer = this.editCustomerDialog.open(AddCustomerComponent);
+
+    addCustomer.afterClosed().subscribe((result) => {
+      // if (result?.name === undefined || result?.status === undefined) return;
+      console.log(result);
+
+      // addDoc(collection(this.firestore, 'customers'), result);
     });
   }
 }

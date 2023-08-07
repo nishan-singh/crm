@@ -1,1 +1,36 @@
-<p>add-customer works!</p>
+<section class="add-customer-wrapper">
+  <form action="" (ngSubmit)="onSubmit()" class="add-customer-form">
+    <h1>Add Customer</h1>
+    <mat-form-field>
+      <mat-label>Customer Name</mat-label>
+      <input matInput placeholder="Customer Name" required #customerName />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Customer Description</mat-label>
+      <textarea
+        matInput
+        placeholder="Customer Description"
+        #customerDesc
+        required
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Customer Price</mat-label>
+      <input matInput placeholder="Customer Price" required #customerPrice />
+    </mat-form-field>
+    <div class="actions-wrapper">
+      <button mat-raised-button>Cancel</button>
+      <button
+        mat-raised-button
+        [mat-dialog-close]="{
+          name: customerName.value,
+          desc: customerDesc.value,
+          price: customerPrice.value,
+          status: 'Active'
+        }"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</section>
