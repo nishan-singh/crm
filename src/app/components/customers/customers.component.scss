@@ -22,12 +22,13 @@ $color-progress: #2196f3;
 }
 
 .panel-list {
-  padding-block-start: $m-24;
+  padding-block-start: $m-8;
   background-color: $color-primary;
 }
 
 .new-customer {
   padding: $m-8;
+  margin: $m-24 $m-16;
   background-color: $color-accent;
   color: $color-primary;
   border-radius: 4px;
