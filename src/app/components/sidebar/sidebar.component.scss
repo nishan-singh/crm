@@ -17,6 +17,19 @@ ul {
 
 .sidebar-routing-link {
   gap: $m-8;
+  color: $color-dark-grey;
+  font-size: 1.125rem;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: #000000;
+    .dashboard-icon {
+      fill: #000000 !important;
+    }
+    svg,
+    path {
+      stroke: #000000 !important;
+    }
+  }
 }
 
 .toggle-btn {

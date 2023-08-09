@@ -74,14 +74,14 @@ export class MonthlyIncomeComponent {
         labels: this.months,
         datasets: [
           {
-            label: 'Yearly Earning (in Euros)',
+            label: 'Monthly Earning (in Euros)',
             data: this.earnings,
             backgroundColor: ['rgba(117, 194, 246,0.3)'],
             borderColor: ['rgba(117, 194, 246,1)'],
             borderWidth: 1,
           },
           {
-            label: 'Yearly Expenses (in Euros)',
+            label: 'Monthly Expenses (in Euros)',
             data: this.expenses,
             backgroundColor: ['rgba(69, 69, 69, 0.2)'],
             borderColor: ['rgba(69, 69, 69, 1)'],
