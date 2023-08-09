@@ -23,7 +23,7 @@ export class MonthlyIncomeComponent {
   ngOnInit(): void {
     const yearlyEarningRef = collection(this.firestore, 'monthly-income');
     collectionData(yearlyEarningRef).subscribe((data: any) => {
-      this.sortedData = data.sort((a: any, b: any) => a.month - b.month);
+      this.sortedData = data.map((d: any) => d);
       this.sortedData.sort((a, b) => {
         const monthOrder = [
           'January',
