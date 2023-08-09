@@ -1,33 +1,60 @@
 <section class="add-customer-wrapper">
-  <form action="" (ngSubmit)="onSubmit()" class="add-customer-form">
-    <h1>Add Customer</h1>
+  <h2>Add Customer</h2>
+  <form
+    action=""
+    [formGroup]="addCustomerForm"
+    (ngSubmit)="onSubmit(addCustomerForm.value)"
+  >
     <mat-form-field>
       <mat-label>Customer Name</mat-label>
-      <input matInput placeholder="Customer Name" required #customerName />
+      <input
+        matInput
+        type="text"
+        id="customerName"
+        placeholder="Customer Name"
+        formControlName="customerName"
+        required
+        minlength="4"
+      />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Customer Description</mat-label>
-      <textarea
+      <input
         matInput
-        placeholder="Customer Description"
-        #customerDesc
+        type="email"
+        id="projectDesc"
+        formControlName="projectDesc"
         required
-      ></textarea>
+        placeholder="Project Description"
+      />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Customer Price</mat-label>
-      <input matInput placeholder="Customer Price" required #customerPrice />
+      <input
+        matInput
+        type="number"
+        id="price"
+        formControlName="price"
+        placeholder="Customer Price"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select Status</mat-label>
+      <mat-select required id="status" formControlName="status">
+        <mat-option *ngFor="let status of statusList" [value]="status">
+          {{ status }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <div class="actions-wrapper">
-      <button mat-raised-button>Cancel</button>
+      <button mat-raised-button class="cancel" color="warn">Cancel</button>
       <button
+        class="save"
         mat-raised-button
-        [mat-dialog-close]="{
-          name: customerName.value,
-          desc: customerDesc.value,
-          price: customerPrice.value,
-          status: 'Active'
-        }"
+        [ngClass]="{ disabled: !addCustomerForm.valid }"
+        disabled="{ disabled: !addCustomerForm.valid }"
+        [disabled]="!addCustomerForm.valid"
       >
         Save
       </button>

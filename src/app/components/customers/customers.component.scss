@@ -83,6 +83,10 @@ td {
 th,
 td {
   padding: $m-16 $m-24;
+  min-width: 250px;
+}
+tr {
+  min-width: 750px;
 }
 
 @media (max-width: 872px) {

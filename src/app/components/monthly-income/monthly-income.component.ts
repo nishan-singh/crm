@@ -13,6 +13,7 @@ export class MonthlyIncomeComponent {
   rotateCanvas: boolean = false;
   yearlyEarnings: any;
   checkWidth: number = window.screen.width;
+  sortedData: any[] = [];
   months: any[] = [];
   earnings: any[] = [];
   expenses: any[] = [];
@@ -22,8 +23,8 @@ export class MonthlyIncomeComponent {
   ngOnInit(): void {
     const yearlyEarningRef = collection(this.firestore, 'monthly-income');
     collectionData(yearlyEarningRef).subscribe((data: any) => {
-      this.months = data.map((d: any) => d.month);
-      this.months.sort((a, b) => {
+      this.sortedData = data.sort((a: any, b: any) => a.month - b.month);
+      this.sortedData.sort((a, b) => {
         const monthOrder = [
           'January',
           'February',
@@ -38,10 +39,11 @@ export class MonthlyIncomeComponent {
           'November',
           'December',
         ];
-        return monthOrder.indexOf(a) - monthOrder.indexOf(b);
+        return monthOrder.indexOf(a.month) - monthOrder.indexOf(b.month);
       });
-      this.earnings = data.map((d: any) => d.earning);
-      this.expenses = data.map((d: any) => d.expenses);
+      this.months = this.sortedData.map((d: any) => d.month);
+      this.earnings = this.sortedData.map((d: any) => d.earning);
+      this.expenses = this.sortedData.map((d: any) => d.expenses);
 
       this.displayYearlyEarning();
     });
