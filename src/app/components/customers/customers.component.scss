@@ -2,6 +2,7 @@
 
 $color-success: #4caf50;
 $color-error: #f44336;
+$color-error-hover: #d32f2f;
 $color-warning: #ff9800;
 $color-progress: #2196f3;
 
@@ -34,6 +35,9 @@ $color-progress: #2196f3;
   border-radius: 4px;
   margin-block-end: $m-16;
   gap: $m-8;
+  &:hover {
+    background-color: $color-accent-hover;
+  }
   h3 {
     font-size: clamp(1rem, 2vw, 1.125rem);
     font-weight: 500;
@@ -52,6 +56,10 @@ $color-progress: #2196f3;
   background-color: $color-error;
   color: $color-primary;
   margin-inline-end: $m-8;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: $color-error-hover;
+  }
 }
 
 .edit {
@@ -59,6 +67,10 @@ $color-progress: #2196f3;
   border-radius: $m-8;
   background-color: $color-accent;
   color: $color-primary;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: $color-accent-hover;
+  }
 }
 
 table {
