@@ -70,7 +70,15 @@ export class CustomersComponent {
     const addCustomer = this.editCustomerDialog.open(AddCustomerComponent);
 
     addCustomer.afterClosed().subscribe((result) => {
-      if (result === undefined) return;
+      console.log(result);
+
+      if (
+        result.name === '' ||
+        result.projectDesc === '' ||
+        result.price === ''
+      )
+        return;
+
       addDoc(collection(this.firestore, 'customers'), result);
     });
   }

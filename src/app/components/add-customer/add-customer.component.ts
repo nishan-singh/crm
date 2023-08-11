@@ -44,4 +44,8 @@ export class AddCustomerComponent {
       status: value.status,
     });
   }
+
+  onCancel() {
+    this.dialogRef.close();
+  }
 }
