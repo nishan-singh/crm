@@ -1,0 +1,50 @@
+@import "../../../variables.scss";
+
+.panel-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $m-16;
+}
+
+.panel-list {
+  padding-block-start: $m-8;
+  background-color: $color-primary;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  text-align: left;
+}
+
+tbody {
+  tr:nth-child(odd) {
+    background-color: $color-light-grey;
+  }
+}
+
+table,
+th,
+td {
+  border: 1px solid $color-secondary;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: $m-16 $m-24;
+  min-width: fit-content;
+}
+tr {
+  min-width: 750px;
+}
+
+@media (max-width: 872px) {
+  .panel-list {
+    overflow-y: hidden;
+  }
+  table {
+    min-width: 750px;
+    overflow: auto;
+  }
+}
