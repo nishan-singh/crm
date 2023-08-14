@@ -50,18 +50,6 @@ $color-progress: #2196f3;
   border-radius: $m-8;
 }
 
-.delete {
-  padding: 4px 8px;
-  border-radius: $m-8;
-  background-color: $color-error;
-  color: $color-primary;
-  margin-inline-end: $m-8;
-  transition: background-color 0.2s ease-in-out;
-  &:hover {
-    background-color: $color-error-hover;
-  }
-}
-
 .edit {
   padding: 4px 8px;
   border-radius: $m-8;

@@ -5,6 +5,8 @@ import {
   collection,
   query,
   orderBy,
+  deleteDoc,
+  doc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -39,5 +41,9 @@ export class TransactionsComponent {
   toggleFullScreen(): void {
     document.body.style.overflow = this.isFullScreen ? 'auto' : 'hidden';
     this.isFullScreen = !this.isFullScreen;
+  }
+
+  delCustomer(id: string): void {
+    deleteDoc(doc(collection(this.firestore, 'customers'), id));
   }
 }

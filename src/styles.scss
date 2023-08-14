@@ -1,4 +1,6 @@
 @import "variables.scss";
+$color-error: #f44336;
+$color-error-hover: #d32f2f;
 
 html,
 body {
@@ -117,6 +119,18 @@ mat-drawer-content {
   left: 0;
   overflow: auto;
   z-index: 100;
+}
+
+.delete {
+  padding: 4px 8px;
+  border-radius: $m-8;
+  background-color: $color-error;
+  color: $color-primary;
+  margin-inline-end: $m-8;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: $color-error-hover;
+  }
 }
 
 @media (max-width: 768px) {
