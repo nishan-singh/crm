@@ -18,6 +18,7 @@ import { Observable } from 'rxjs';
 export class TransactionsComponent {
   private firestore: Firestore = inject(Firestore);
   isFullScreen: boolean = false;
+  uniqueId: string = 'uniqueId';
 
   transactions$: Observable<any[]>;
 
@@ -25,9 +26,9 @@ export class TransactionsComponent {
     const order = orderBy('date');
     const upcomingEventsRef = collection(this.firestore, 'transactions');
     const upcomingEventsQuery = query(upcomingEventsRef, order);
-    this.transactions$ = collectionData(upcomingEventsQuery) as Observable<
-      any[]
-    >;
+    this.transactions$ = collectionData(upcomingEventsQuery, {
+      idField: this.uniqueId,
+    }) as Observable<any[]>;
   }
 
   @HostListener('document: keydown', ['$event'])
@@ -44,6 +45,6 @@ export class TransactionsComponent {
   }
 
   delCustomer(id: string): void {
-    deleteDoc(doc(collection(this.firestore, 'customers'), id));
+    deleteDoc(doc(collection(this.firestore, 'transactions'), id));
   }
 }

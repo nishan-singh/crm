@@ -111,6 +111,16 @@ mat-drawer-content {
   }
 }
 
+// status styling
+.success {
+  background-color: $color-success;
+}
+
+.cancelled,
+.unpaid {
+  background-color: $color-error;
+}
+
 .full-screen {
   height: 100vh;
   width: 100%;

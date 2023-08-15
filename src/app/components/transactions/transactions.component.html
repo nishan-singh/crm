@@ -38,6 +38,7 @@
           <th>Description</th>
           <th>Amount</th>
           <th>Type</th>
+          <th>Status</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -54,6 +55,16 @@
           </td>
           <td>{{ transaction.amount | currency : "EUR" }}</td>
           <td>{{ transaction.type }}</td>
+          <td>
+            <p
+              [ngClass]="{
+                success: transaction.status === 'paid',
+                unpaid: transaction.status === 'unpaid'
+              }"
+            >
+              {{ transaction.status }}
+            </p>
+          </td>
           <td>
             <button
               type="button"

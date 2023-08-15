@@ -1,25 +1,11 @@
 @import "../../../variables.scss";
 
-$color-success: #4caf50;
-$color-error: #f44336;
-$color-error-hover: #d32f2f;
-$color-warning: #ff9800;
-$color-progress: #2196f3;
-
 .active {
   background-color: $color-progress;
 }
 
 .pending {
   background-color: $color-warning;
-}
-
-.success {
-  background-color: $color-success;
-}
-
-.cancelled {
-  background-color: $color-error;
 }
 
 .panel-list {
