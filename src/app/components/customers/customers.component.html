@@ -97,8 +97,9 @@
           <td>
             <button
               type="button"
-              (click)="delCustomer(customer.uniqueId)"
+              (click)="delCustomer(customer.uid)"
               class="delete"
+              aria-label="Delete customer"
             >
               <svg
                 width="24px"
@@ -128,7 +129,8 @@
             <button
               type="button"
               class="edit"
-              (click)="editCustomer(customer.uniqueId)"
+              (click)="editCustomer(customer.uid)"
+              aria-label="Edit customer"
             >
               <svg
                 width="24px"

@@ -68,8 +68,9 @@
           <td>
             <button
               type="button"
-              (click)="delCustomer(transaction.uniqueId)"
+              (click)="delCustomer(transaction.uid)"
               class="delete"
+              aria-label="Delete transaction"
             >
               <svg
                 width="24px"

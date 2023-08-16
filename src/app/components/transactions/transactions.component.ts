@@ -18,7 +18,6 @@ import { Observable } from 'rxjs';
 export class TransactionsComponent {
   private firestore: Firestore = inject(Firestore);
   isFullScreen: boolean = false;
-  uniqueId: string = 'uniqueId';
 
   transactions$: Observable<any[]>;
 
@@ -27,7 +26,7 @@ export class TransactionsComponent {
     const upcomingEventsRef = collection(this.firestore, 'transactions');
     const upcomingEventsQuery = query(upcomingEventsRef, order);
     this.transactions$ = collectionData(upcomingEventsQuery, {
-      idField: this.uniqueId,
+      idField: 'uid',
     }) as Observable<any[]>;
   }
 

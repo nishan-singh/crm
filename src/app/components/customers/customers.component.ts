@@ -22,12 +22,11 @@ export class CustomersComponent {
   private firestore: Firestore = inject(Firestore);
 
   isFullScreen: boolean = false;
-  uniqueId: string = 'uniqueId';
 
   customers$: Observable<any[]> = collectionData(
     collection(this.firestore, 'customers'),
     {
-      idField: this.uniqueId,
+      idField: 'uid',
     }
   );
 
