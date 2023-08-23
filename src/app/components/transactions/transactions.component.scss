@@ -35,6 +35,7 @@ td {
   padding: $m-16 $m-24;
   min-width: fit-content;
 }
+
 tr {
   min-width: 750px;
 }
@@ -51,7 +52,7 @@ td p {
     overflow-y: hidden;
   }
   table {
-    min-width: 750px;
+    min-width: 900px;
     overflow: auto;
   }
 }
