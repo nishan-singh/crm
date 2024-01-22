@@ -37,19 +37,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        class="panel-list__each d-flex"
-        *ngFor="let workAnnouncement of workAnnouncements$ | async"
-      >
-        <td>
-          <h4>
-            {{ workAnnouncement.projectName }}
-          </h4>
-        </td>
-        <td>
-          {{ workAnnouncement.workerName }}
-        </td>
-      </tr>
+      @for (
+        workAnnouncement of workAnnouncements$ | async;
+        track workAnnouncement.uid
+      ) {
+        <tr class="panel-list__each d-flex">
+          <td>
+            <h4>
+              {{ workAnnouncement.projectName }}
+            </h4>
+          </td>
+          <td>
+            {{ workAnnouncement.workerName }}
+          </td>
+        </tr>
+      }
     </tbody>
   </table>
 </section>

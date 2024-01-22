@@ -30,23 +30,22 @@
     </button>
   </header>
   <ul class="panel-list events-list d-flex">
-    <li
-      class="panel-list__each d-flex"
-      *ngFor="let pendingWork of pendingWorks$ | async"
-    >
-      <div class="panel-list__info-wrapper">
-        <h4>{{ pendingWork.name }}</h4>
-        <p>{{ pendingWork.desc }}</p>
-      </div>
-      <p
-        class="more-info"
-        [ngClass]="{
-          pending: pendingWork.status === 'Pending',
-          failed: pendingWork.status === 'Failed',
-        }"
-      >
-        {{ pendingWork.status }}
-      </p>
-    </li>
+    @for (pendingWork of pendingWorks$ | async; track pendingWork.uid) {
+      <li class="panel-list__each d-flex">
+        <div class="panel-list__info-wrapper">
+          <h4>{{ pendingWork.name }}</h4>
+          <p>{{ pendingWork.desc }}</p>
+        </div>
+        <p
+          class="more-info"
+          [ngClass]="{
+            pending: pendingWork.status === 'Pending',
+            failed: pendingWork.status === 'Failed'
+          }"
+        >
+          {{ pendingWork.status }}
+        </p>
+      </li>
+    }
   </ul>
 </section>

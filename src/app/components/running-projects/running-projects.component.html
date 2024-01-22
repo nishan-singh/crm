@@ -30,24 +30,29 @@
     </button>
   </header>
   <ul class="panel-list events-list d-flex">
-    <li
-      class="panel-list__each d-flex"
-      *ngFor="let runningProject of runningProjects$ | async"
-    >
-      <div class="panel-list__info-wrapper">
-        <h4>{{ runningProject.name }}</h4>
-        <p>{{ runningProject.desc }}</p>
-      </div>
-      <p
-        class="more-info"
-        [ngClass]="{
-          'in-progress': runningProject.status === 'In Progress' || runningProject.status === 'Ongoing',
-          success: runningProject.status === 'Completed' || runningProject.status === 'Active',
-         
-        }"
-      >
-        {{ runningProject.status }}
-      </p>
-    </li>
+    @for (
+      runningProject of runningProjects$ | async;
+      track runningProject.uid
+    ) {
+      <li class="panel-list__each d-flex">
+        <div class="panel-list__info-wrapper">
+          <h4>{{ runningProject.name }}</h4>
+          <p>{{ runningProject.desc }}</p>
+        </div>
+        <p
+          class="more-info"
+          [ngClass]="{
+            'in-progress':
+              runningProject.status === 'In Progress' ||
+              runningProject.status === 'Ongoing',
+            success:
+              runningProject.status === 'Completed' ||
+              runningProject.status === 'Active'
+          }"
+        >
+          {{ runningProject.status }}
+        </p>
+      </li>
+    }
   </ul>
 </section>
