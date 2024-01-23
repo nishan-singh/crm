@@ -34,13 +34,14 @@
       <li class="panel-list__each d-flex">
         <div class="panel-list__info-wrapper">
           <h4>{{ event.name }}</h4>
-          <p *ngIf="event.endDate; else noEndDate">
-            {{ event.startDate | date: "MMM,dd" }} -
-            {{ event.endDate | date: "MMM,dd,YYYY" }}
-          </p>
-          <ng-template #noEndDate>
+          @if (event.endDate) {
+            <p>
+              {{ event.startDate | date: "MMM,dd" }} -
+              {{ event.endDate | date: "MMM,dd,YYYY" }}
+            </p>
+          } @else {
             <p>{{ event.startDate | date: "MMM,dd,YYYY" }}</p>
-          </ng-template>
+          }
         </div>
         <p class="more-info">{{ event.platform }}</p>
       </li>
