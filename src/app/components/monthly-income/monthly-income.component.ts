@@ -1,11 +1,14 @@
+import { NgClass } from '@angular/common';
 import { Component, inject, HostListener } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Chart, registerables } from 'chart.js';
 
 @Component({
   selector: 'app-monthly-income',
+  standalone: true,
   templateUrl: './monthly-income.component.html',
   styleUrls: ['./monthly-income.component.scss'],
+  imports: [NgClass],
 })
 export class MonthlyIncomeComponent {
   private firestore: Firestore = inject(Firestore);

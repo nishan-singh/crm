@@ -1,3 +1,4 @@
+import { AsyncPipe, CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 import { Component, inject, HostListener } from '@angular/core';
 import {
   Firestore,
@@ -12,8 +13,10 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-transactions',
+  standalone: true,
   templateUrl: './transactions.component.html',
   styleUrls: ['./transactions.component.scss'],
+  imports: [NgClass, AsyncPipe, DatePipe, CurrencyPipe]
 })
 export class TransactionsComponent {
   private firestore: Firestore = inject(Firestore);

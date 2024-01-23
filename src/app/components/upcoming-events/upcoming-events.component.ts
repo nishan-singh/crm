@@ -1,3 +1,4 @@
+import { AsyncPipe, DatePipe, NgClass } from '@angular/common';
 import { Component, HostListener, inject } from '@angular/core';
 import {
   Firestore,
@@ -10,8 +11,10 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-upcoming-events',
+  standalone: true,
   templateUrl: './upcoming-events.component.html',
   styleUrls: ['./upcoming-events.component.scss'],
+  imports: [NgClass, AsyncPipe, DatePipe]
 })
 export class UpcomingEventsComponent {
   isFullScreen: boolean = false;

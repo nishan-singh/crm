@@ -1,10 +1,13 @@
+import { AsyncPipe, NgClass } from '@angular/common';
 import { Component, HostListener, inject } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-work-announcements',
+  standalone: true,
   templateUrl: './work-announcements.component.html',
   styleUrls: ['./work-announcements.component.scss'],
+  imports: [NgClass, AsyncPipe]
 })
 export class WorkAnnouncementsComponent {
   private firestore: Firestore = inject(Firestore);

@@ -12,11 +12,14 @@ import { Observable, from } from 'rxjs';
 import { EditCustomerComponent } from '../edit-customer/edit-customer.component';
 import { deleteDoc, getDoc, updateDoc } from 'firebase/firestore';
 import { AddCustomerComponent } from '../add-customer/add-customer.component';
+import { AsyncPipe, CurrencyPipe, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-customers',
+  standalone: true,
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.scss'],
+  imports: [NgClass, AsyncPipe, CurrencyPipe]
 })
 export class CustomersComponent {
   private firestore: Firestore = inject(Firestore);
